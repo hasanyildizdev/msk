@@ -1,7 +1,19 @@
 import '../styles/globals.css'
+import Footer from '../components/Footer';
+import React, { Suspense } from 'react';
+import Navbar from '../components/Navbar';
+import './i18n';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return(
+    <>
+    <Suspense fallback="loading">
+      <Navbar/>
+      <Component {...pageProps} />
+      <Footer/>
+    </Suspense>
+    </>
+    )
 }
 
 export default MyApp
